@@ -22,5 +22,8 @@
         username: chengxiuluo
         password: "{{my_password.stdout}}"
 
+    - name: config nginx
+      shell: cd /var/todolist-deploy/nginx && bash ./build.sh
+
     - name: run app
       shell: cd /var/todolist-deploy/ && docker-compose up -d
