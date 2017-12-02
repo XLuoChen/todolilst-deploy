@@ -1,0 +1,26 @@
+---
+- hosts: todolist
+  become: true
+  tasks:
+    - name: create dest directory
+      file:
+        path: /var/todolist-deploy
+        state: directory
+        mode: 0755
+
+    - name: deploy project
+      copy:
+        src: /var/lib/jenkins/workspace/todolist-deploy/
+        dest: /var/todolist-deploy
+
+    - name: get docker hub password
+      command: cat ~/my-password.txt
+      register: my_password
+
+    - name: Log into DockerHub
+      docker_login:
+        username: chengxiuluo
+        password: "{{my_password.stdout}}"
+
+    - name: run app
+      shell: cd /var/todolist-deploy/ && docker-compose up -d
