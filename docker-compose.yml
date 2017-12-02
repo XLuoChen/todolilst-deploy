@@ -15,13 +15,13 @@ services:
 
   frontend1:
     container_name: frontend1
-    image: chengxiuluo/frontend:latest
+    image: chengxiuluo/todolist-frontend:latest
   frontend2:
     container_name: frontend2
-    image: chengxiuluo/frontend:latest
+    image: chengxiuluo/todolist-frontend:latest
   frontend3:
     container_name: frontend3
-    image: chengxiuluo/frontend:latest
+    image: chengxiuluo/todolist-frontend:latest
 
 
   mysql:
