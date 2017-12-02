@@ -4,7 +4,7 @@ services:
     container_name: nginx-ingress
     image: chengxiuluo/nginx:latest
     ports:
-      - "3000:80"
+      - "80:80"
     links:
       - frontend1
       - frontend2
